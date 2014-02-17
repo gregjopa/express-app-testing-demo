@@ -1,0 +1,7 @@
+.search-results ul { padding: 0; }
+.search-results li { display: inline; }
+
+.thumbnail {
+  display: inline-block;
+  margin: 0 10px 20px 0;
+}

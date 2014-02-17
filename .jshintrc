@@ -1,0 +1,26 @@
+{
+  "node": true,
+  "browser": false,
+  "bitwise": true,
+  "camelcase": true,
+  "curly": false,
+  "eqeqeq": true,
+  "forin": true,
+  "eqnull": true,
+  "indent": 2,
+  "newcap": true,
+  "noarg": true,
+  "undef": true,
+  "strict": false,
+  "trailing": true,
+  "smarttabs": false,
+  "loopfunc": true,
+  "globals": {
+    "describe": false,
+    "it": false,
+    "before": false,
+    "beforeEach": false,
+    "after": false,
+    "afterEach": false
+  }
+}
