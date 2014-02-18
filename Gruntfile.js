@@ -17,6 +17,16 @@ module.exports = function (grunt) {
     },
 
 
+    mochaTest: {
+      unit: {
+        options: {
+          reporter: 'spec'
+        },
+        src: ['test/unit/*.js']
+      }
+    },
+
+
     watch: {
       lint: {
         files: '<%= jshint.files.src %>',
@@ -50,6 +60,7 @@ module.exports = function (grunt) {
   // plugins
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-concurrent');
 
