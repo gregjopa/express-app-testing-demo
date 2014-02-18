@@ -19,7 +19,8 @@
     "grunt-concurrent": "~0.4.3",
     "grunt-istanbul": "~0.2.4",
     "grunt-env": "~0.4.1",
-    "should": "~3.1.2"
+    "should": "~3.1.2",
+    "nock": "~0.27.2"
   },
   "repository": {
     "type": "git",
