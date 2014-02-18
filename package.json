@@ -13,9 +13,12 @@
     "grunt": "~0.4.2",
     "grunt-contrib-jshint": "~0.8.0",
     "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-clean": "~0.5.0",
     "grunt-mocha-test": "~0.9.0",
     "grunt-nodemon": "~0.2.0",
     "grunt-concurrent": "~0.4.3",
+    "grunt-istanbul": "~0.2.4",
+    "grunt-env": "~0.4.1",
     "should": "~3.1.2"
   },
   "repository": {
