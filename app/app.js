@@ -1,5 +1,5 @@
 var express = require('express');
-var app = express();
+var app = module.exports = express();
 
 var formValidator = require('./form_validator');
 var photoModel = require('./photo_model');

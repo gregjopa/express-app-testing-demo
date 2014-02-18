@@ -56,6 +56,12 @@ module.exports = function (grunt) {
           reporter: 'spec'
         },
         src: ['test/unit/*.js']
+      },
+      route: {
+        options: {
+          reporter: 'spec'
+        },
+        src: ['test/route/*.js']
       }
     },
 
@@ -72,6 +78,22 @@ module.exports = function (grunt) {
     clean: {
       coverage: {
         src: ['/test/coverage/']
+      }
+    },
+
+
+    copy: {
+      views: {
+        expand: true,
+        flatten: true,
+        src: ['app/views/*'],
+        dest: 'test/coverage/instrument/app/views'
+      },
+      publicAssets: {
+        expand: true,
+        flatten: true,
+        src: ['app/public/*'],
+        dest: 'test/coverage/instrument/app/public'
       }
     },
 
@@ -115,6 +137,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-concurrent');
@@ -125,9 +148,9 @@ module.exports = function (grunt) {
   // tasks
   grunt.registerTask('server', ['concurrent:target']);
   grunt.registerTask('default', ['jshint', 'server']);
-  grunt.registerTask('test', ['mochaTest:unit']);
+  grunt.registerTask('test', ['mochaTest:unit', 'mochaTest:route']);
 
-  grunt.registerTask('coverage', ['jshint', 'clean', 'env:coverage', 'instrument',
-    'reloadTasks', 'test', 'storeCoverage', 'makeReport' ]);
+  grunt.registerTask('coverage', ['jshint', 'clean', 'copy:views', 'copy:publicAssets',
+    'env:coverage', 'instrument', 'reloadTasks', 'test', 'storeCoverage', 'makeReport' ]);
 
 };
