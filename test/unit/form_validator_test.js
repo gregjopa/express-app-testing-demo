@@ -1,3 +1,5 @@
+/* jshint expr: true */
+
 var should = require('should');
 var requireHelper = require('../require_helper');
 var formValidator = requireHelper('form_validator');
