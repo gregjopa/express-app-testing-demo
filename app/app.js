@@ -55,7 +55,7 @@ app.get('/', function (req, res) {
   photoModel.getFlickrPhotos(tags, tagmode, function (error, photos) {
 
     if (error) {
-      console.error(error);
+      // console.error(error);
       return res.send(500, 'Internal Server Error');
     }
 
