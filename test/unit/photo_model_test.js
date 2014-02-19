@@ -29,7 +29,7 @@ describe('photo_model.js', function () {
 
       photoModel.getFlickrPhotos('california', 'all', function (error, photos) {
 
-        if (error) {
+        if (error !== null) {
           error.should.not.be.ok;
         }
         photos.should.be.an.instanceOf(Object);
