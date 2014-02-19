@@ -107,11 +107,6 @@ module.exports = function (grunt) {
     },
 
 
-    reloadTasks: {
-      rootPath: 'test/coverage/instrument/app'
-    },
-
-
     storeCoverage: {
       options: {
         dir: 'test/coverage/reports'
@@ -151,6 +146,6 @@ module.exports = function (grunt) {
   grunt.registerTask('test', ['mochaTest:unit', 'mochaTest:route']);
 
   grunt.registerTask('coverage', ['jshint', 'clean', 'copy:views', 'copy:publicAssets',
-    'env:coverage', 'instrument', 'reloadTasks', 'test', 'storeCoverage', 'makeReport' ]);
+    'env:coverage', 'instrument', 'test', 'storeCoverage', 'makeReport' ]);
 
 };
