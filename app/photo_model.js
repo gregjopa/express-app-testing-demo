@@ -28,7 +28,7 @@ var getFlickrPhotos = function (tags, tagmode, callback) {
           photo.media.b = photo.media.m.split('m.jpg')[0] + 'b.jpg';
         });
 
-        callback('', photos);
+        callback(null, photos);
 
       }
       catch (e) {

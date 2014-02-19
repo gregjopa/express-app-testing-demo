@@ -29,7 +29,9 @@ describe('photo_model.js', function () {
 
       photoModel.getFlickrPhotos('california', 'all', function (error, photos) {
 
-        error.should.not.be.ok;
+        if (error) {
+          error.should.not.be.ok;
+        }
         photos.should.be.an.instanceOf(Object);
         photos.length.should.be.above(0);
         photos[0].should.have.properties('title', 'media');
