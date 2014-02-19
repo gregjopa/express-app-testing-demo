@@ -1,4 +1,5 @@
 var request = require('request');
+var jsonpHelper = require('./jsonp_helper');
 
 
 var getFlickrPhotos = function (tags, tagmode, callback) {
@@ -19,7 +20,7 @@ var getFlickrPhotos = function (tags, tagmode, callback) {
 
       try {
 
-        var json = parseJSONP(body);
+        var json = jsonpHelper.parseJSONP(body);
         var photos = json.items;
 
         photos.forEach(function (photo) {
@@ -44,27 +45,6 @@ var getFlickrPhotos = function (tags, tagmode, callback) {
 };
 
 
-var parseJSONP = function (jsonpData) {
-
-  try {
-    var startPos = jsonpData.indexOf('({');
-    var endPos = jsonpData.lastIndexOf('})');
-    var jsonString = jsonpData.substring(startPos + 1, endPos + 1);
-
-    // remove escaped single quotes since they are not valid json
-    jsonString = jsonString.replace(/\\'/g, "'");
-
-    return JSON.parse(jsonString);
-  }
-  catch (e) {
-    var error = new Error('Error coverting jsonp to json: ' + e.message);
-    throw error;
-  }
-
-};
-
-
 module.exports = {
-  getFlickrPhotos: getFlickrPhotos,
-  parseJSONP: parseJSONP
+  getFlickrPhotos: getFlickrPhotos
 };
