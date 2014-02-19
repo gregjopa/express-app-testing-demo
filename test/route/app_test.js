@@ -34,7 +34,8 @@ describe('index route', function () {
     request(app)
       .get('/?tags=california&tagmode=all')
       .expect('Content-Type', /html/)
-      .expect(200, done);
+      .expect(200)
+      .expect(/<div class="panel panel-default search-results">/, done);
 
   });
 
@@ -44,7 +45,8 @@ describe('index route', function () {
     request(app)
       .get('/?tags=california123&tagmode=all')
       .expect('Content-Type', /html/)
-      .expect(200, done);
+      .expect(200)
+      .expect(/<div class="alert alert-danger">/, done);
 
   });
 
