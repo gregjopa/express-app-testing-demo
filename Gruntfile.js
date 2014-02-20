@@ -62,6 +62,12 @@ module.exports = function (grunt) {
           reporter: 'spec'
         },
         src: ['test/route/*.js']
+      },
+      api: {
+        options: {
+          reporter: 'spec'
+        },
+        src: ['test/api/*.js']
       }
     },
 
@@ -143,9 +149,9 @@ module.exports = function (grunt) {
   // tasks
   grunt.registerTask('server', ['concurrent:target']);
   grunt.registerTask('default', ['jshint', 'server']);
-  grunt.registerTask('test', ['mochaTest:unit', 'mochaTest:route']);
+  grunt.registerTask('test', ['mochaTest:unit', 'mochaTest:route', 'mochaTest:api']);
 
   grunt.registerTask('coverage', ['jshint', 'clean', 'copy:views', 'copy:publicAssets',
-    'env:coverage', 'instrument', 'test', 'storeCoverage', 'makeReport' ]);
+    'env:coverage', 'instrument', 'mochaTest:unit', 'mochaTest:route', 'storeCoverage', 'makeReport']);
 
 };

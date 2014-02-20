@@ -5,7 +5,7 @@ var jsonpHelper = require('./jsonp_helper');
 var getFlickrPhotos = function (tags, tagmode, callback) {
 
   var flickrPublicFeedAPI = {
-    uri: 'http://api.flickr.com/services/feeds/photos_public.gne?',
+    uri: 'http://api.flickr.com/services/feeds/photos_public.gne',
     timeout: 10000,
     qs: {
       tags: tags,
