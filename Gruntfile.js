@@ -25,7 +25,7 @@ module.exports = function (grunt) {
       },
       test: {
         files: ['test/unit/*.js'],
-        tasks: ['jshint', 'coverage']
+        tasks: ['jshint', 'mochaTest:unit']
       }
     },
 
