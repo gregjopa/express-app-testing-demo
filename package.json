@@ -2,6 +2,9 @@
   "name": "express-app-testing-demo",
   "description": "a simple express.js app for demonstrating testing and code coverage",
   "version": "0.0.1",
+  "engines": {
+    "node": "0.10.x"
+  },
   "private": true,
   "main": "app/app.js",
   "dependencies": {
