@@ -83,7 +83,7 @@ module.exports = function (grunt) {
 
     clean: {
       coverage: {
-        src: ['/test/coverage/']
+        src: ['test/coverage/']
       }
     },
 
@@ -94,12 +94,6 @@ module.exports = function (grunt) {
         flatten: true,
         src: ['app/views/*'],
         dest: 'test/coverage/instrument/app/views'
-      },
-      publicAssets: {
-        expand: true,
-        flatten: true,
-        src: ['app/public/*'],
-        dest: 'test/coverage/instrument/app/public'
       }
     },
 
@@ -151,7 +145,7 @@ module.exports = function (grunt) {
   grunt.registerTask('default', ['jshint', 'server']);
   grunt.registerTask('test', ['mochaTest:unit', 'mochaTest:route', 'mochaTest:api']);
 
-  grunt.registerTask('coverage', ['jshint', 'clean', 'copy:views', 'copy:publicAssets',
-    'env:coverage', 'instrument', 'mochaTest:unit', 'mochaTest:route', 'storeCoverage', 'makeReport']);
+  grunt.registerTask('coverage', ['jshint', 'clean', 'copy:views', 'env:coverage',
+    'instrument', 'mochaTest:unit', 'mochaTest:route', 'storeCoverage', 'makeReport']);
 
 };
