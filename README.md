@@ -1,7 +1,7 @@
 # express-app-testing-demo
 
 This is a simple express.js app for demonstrating testing and code coverage.
-[Mocha](http://visionmedia.github.io/mocha/) and
+[Mocha](http://mochajs.org/) and
 [Supertest](https://github.com/visionmedia/supertest) are used for unit and integration testing.
 [Istanbul](http://gotwarlost.github.io/istanbul/) is used for viewing code coverage. Note that this
 app only focuses on server-side JavaScript testing.
