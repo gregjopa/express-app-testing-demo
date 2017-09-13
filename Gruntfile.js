@@ -3,29 +3,10 @@ module.exports = function (grunt) {
   // configuration
   grunt.initConfig({
 
-
-    jshint: {
-      options: {
-        jshintrc: '.jshintrc',
-        ignores: ['test/coverage/**/*.js']
-      },
-      files: {
-        src: ['app/**/*.js', 'test/**/*.js']
-      },
-      gruntfile: {
-        src: 'Gruntfile.js'
-      }
-    },
-
-
     watch: {
-      lint: {
-        files: '<%= jshint.files.src %>',
-        tasks: 'jshint'
-      },
       test: {
         files: ['test/unit/*.js'],
-        tasks: ['jshint', 'mochaTest:unit']
+        tasks: ['mochaTest:unit']
       }
     },
 
@@ -129,7 +110,6 @@ module.exports = function (grunt) {
 
 
   // plugins
-  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
@@ -142,10 +122,10 @@ module.exports = function (grunt) {
 
   // tasks
   grunt.registerTask('server', ['concurrent:target']);
-  grunt.registerTask('default', ['jshint', 'server']);
+  grunt.registerTask('default', ['server']);
   grunt.registerTask('test', ['mochaTest:unit', 'mochaTest:route', 'mochaTest:api']);
 
-  grunt.registerTask('coverage', ['jshint', 'clean', 'copy:views', 'env:coverage',
+  grunt.registerTask('coverage', ['clean', 'copy:views', 'env:coverage',
     'instrument', 'mochaTest:unit', 'mochaTest:route', 'storeCoverage', 'makeReport']);
 
 };

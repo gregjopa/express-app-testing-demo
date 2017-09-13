@@ -7,24 +7,27 @@
   },
   "private": true,
   "main": "app/app.js",
+  "scripts": {
+    "lint": "eslint app/** test/** --ignore-pattern test/coverage"
+  },
   "dependencies": {
     "express": "~3.4.8",
     "ejs": "~0.8.5",
     "request": "~2.33.0"
   },
   "devDependencies": {
+    "eslint": "^4.6.1",
     "grunt": "~0.4.2",
-    "grunt-contrib-jshint": "~0.8.0",
-    "grunt-contrib-watch": "~0.5.3",
+    "grunt-concurrent": "~0.4.3",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-env": "~0.4.1",
+    "grunt-istanbul": "~0.2.4",
     "grunt-mocha-test": "~0.9.0",
     "grunt-nodemon": "~0.2.0",
-    "grunt-concurrent": "~0.4.3",
-    "grunt-istanbul": "~0.2.4",
-    "grunt-env": "~0.4.1",
-    "should": "~3.1.2",
     "nock": "~0.27.2",
+    "should": "~3.1.2",
     "supertest": "~0.9.0"
   },
   "repository": {

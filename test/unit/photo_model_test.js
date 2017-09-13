@@ -1,5 +1,3 @@
-/* jshint expr: true */
-
 var should = require('should');
 var nock = require('nock');
 var requireHelper = require('../require_helper');
