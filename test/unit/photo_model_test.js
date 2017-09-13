@@ -20,6 +20,7 @@ describe('photo_model.js', function () {
           '"media": {"m":"http://farm8.staticflickr.com/7446/12608714423_efaf73400c_m.jpg"} }' +
         ']})';
 
+      // eslint-disable-next-line no-unused-vars
       var flickrFeedApi = nock('http://api.flickr.com')
         .get('/services/feeds/photos_public.gne?tags=california&tagmode=all&format=json')
         .reply(200, jsonpData);
@@ -43,6 +44,7 @@ describe('photo_model.js', function () {
     it('should error when api returns 500 http status code', function () {
 
       // mock the flickr public feed api endpoint and return a 500 error
+      // eslint-disable-next-line no-unused-vars
       var flickrFeedApi = nock('http://api.flickr.com')
         .get('/services/feeds/photos_public.gne?tags=california&tagmode=all&format=json')
         .reply(500);
@@ -68,6 +70,7 @@ describe('photo_model.js', function () {
           '"media": {"m":"http://farm8.staticflickr.com/7446/12608714423_efaf73400c_m.jpg"} }' +
         ']}';
 
+      // eslint-disable-next-line no-unused-vars
       var flickrFeedApi = nock('http://api.flickr.com')
         .get('/services/feeds/photos_public.gne?tags=california&tagmode=all&format=json')
         .reply(200, jsonpData);

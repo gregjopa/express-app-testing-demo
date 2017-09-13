@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 var should = require('should');
 var requireHelper = require('../require_helper');
 var formValidator = requireHelper('form_validator');

@@ -27,6 +27,7 @@ describe('index route', function () {
         '"media": {"m":"http://farm8.staticflickr.com/7446/12608714423_efaf73400c_m.jpg"} }' +
       ']})';
 
+    // eslint-disable-next-line no-unused-vars
     var flickrFeedApi = nock('http://api.flickr.com')
       .get('/services/feeds/photos_public.gne?tags=california&tagmode=all&format=json')
       .reply(200, jsonpData);
@@ -61,6 +62,7 @@ describe('index route', function () {
         '"media": {"m":"http://farm8.staticflickr.com/7446/12608714423_efaf73400c_m.jpg"} }' +
       ']}';
 
+    // eslint-disable-next-line no-unused-vars
     var flickrFeedApi = nock('http://api.flickr.com')
       .get('/services/feeds/photos_public.gne?tags=california&tagmode=all&format=json')
       .reply(200, jsonpData);
