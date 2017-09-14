@@ -1,16 +1,15 @@
-var should = require('should');
 var nock = require('nock');
 var requireHelper = require('../require_helper');
 var photoModel = requireHelper('photo_model');
 
 
-describe('photo_model.js', function () {
+describe('photo_model.js', () => {
 
 
-  describe('getFlickrPhotos(tags, tagmode, callback)', function () {
+  describe('getFlickrPhotos(tags, tagmode, callback)', () => {
 
 
-    it('should return photos', function () {
+    test('should return photos', () => {
 
       // mock the flickr public feed api endpoint
       var jsonpData = 'jsonFlickrFeed({"items": [' +
@@ -29,19 +28,19 @@ describe('photo_model.js', function () {
       photoModel.getFlickrPhotos('california', 'all', function (error, photos) {
 
         if (error !== null) {
-          error.should.not.be.ok;
+          expect(error).toBeFalsy();
         }
-        photos.should.be.an.instanceOf(Object);
-        photos.length.should.be.above(0);
-        photos[0].should.have.properties('title', 'media');
-        photos[0].media.should.have.properties('t', 'm', 'b');
+        expect(photos).toBeInstanceOf(Object);
+        expect(photos.length).toBeGreaterThan(0);
+        expect(photos[0]).to.have.properties('title', 'media');
+        expect(photos[0].media).to.have.properties('t', 'm', 'b');
 
       });
 
     });
 
 
-    it('should error when api returns 500 http status code', function () {
+    test('should error when api returns 500 http status code', () => {
 
       // mock the flickr public feed api endpoint and return a 500 error
       // eslint-disable-next-line no-unused-vars
@@ -51,16 +50,16 @@ describe('photo_model.js', function () {
 
       photoModel.getFlickrPhotos('california', 'all', function (error, photos) {
 
-        should.exist(error);
-        error.should.match(/Flickr public feed api error/);
-        should.not.exist(photos);
+        expect(error).toBeDefined();
+        expect(error).toMatch(/Flickr public feed api error/);
+        expect(photos).toBeFalsy();
 
       });
 
     });
 
 
-    it('should error with invalid jsonp data', function () {
+    test('should error with invalid jsonp data', () => {
 
       // mock the flickr public feed api endpoint with invalid jsonp data that's missing parentheses
       var jsonpData = 'jsonFlickrFeed{"items": [' +
@@ -77,9 +76,9 @@ describe('photo_model.js', function () {
 
       photoModel.getFlickrPhotos('california', 'all', function (error, photos) {
 
-        should.exist(error);
-        error.should.match(/Flickr public feed api error/);
-        should.not.exist(photos);
+        expect(error).toBeDefined();
+        expect(error).toMatch(/Flickr public feed api error/);
+        expect(photos).toBeFalsy();
 
       });
 

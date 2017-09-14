@@ -1,5 +1,3 @@
-// eslint-disable-next-line no-unused-vars
-var should = require('should');
 var request = require('request');
 var requireHelper = require('../require_helper');
 var jsonpHelper = requireHelper('jsonp_helper');
@@ -15,10 +13,10 @@ function API (params) {
 }
 
 
-describe('flickr public feed api', function () {
+describe('flickr public feed api', () => {
 
 
-  it('should return expected json format', function (done) {
+  test('should return expected json format', done => {
 
     var apiTest = new API({
       tags: 'california',
@@ -27,17 +25,17 @@ describe('flickr public feed api', function () {
 
     request.get(apiTest, function (error, response, body) {
 
-      response.statusCode.should.equal(200, 'Invalid http status code');
+      expect(response.statusCode).toBe(200);
 
       var json = jsonpHelper.parseJSONP(body);
-      json.should.have.property('items');
+      expect(json).toHaveProperty('items');
 
       var photos = json.items;
-      photos.should.be.an.instanceOf(Array);
+      expect(photos).toBeInstanceOf(Array);
 
       photos.forEach(function (photo) {
 
-        photo.should.have.keys(
+        expect(photo).toEqual(expect.arrayContaining([
           'title',
           'link',
           'media',
@@ -47,7 +45,7 @@ describe('flickr public feed api', function () {
           'author',
           'author_id',
           'tags'
-        );
+        ]));
 
       });
 
@@ -58,7 +56,7 @@ describe('flickr public feed api', function () {
   });
 
 
-  it('should return many photos', function (done) {
+  test('should return many photos', done => {
 
     var apiTest = new API({
       tags: 'california, beach, blue',
@@ -67,13 +65,13 @@ describe('flickr public feed api', function () {
 
     request.get(apiTest, function (error, response, body) {
 
-      response.statusCode.should.equal(200, 'Invalid http status code');
+      expect(response.statusCode).toBe(200);
 
       var json = jsonpHelper.parseJSONP(body);
-      json.should.have.property('items');
+      expect(json).toHaveProperty('items');
 
       var photos = json.items;
-      photos.length.should.be.above(0);
+      expect(photos.length).toBeGreaterThan(0);
 
       done();
 
@@ -82,7 +80,7 @@ describe('flickr public feed api', function () {
   });
 
 
-  it('should return zero photos', function (done) {
+  test('should return zero photos', done => {
 
     // these tags should return zero results
     var apiTest = new API({
@@ -92,13 +90,13 @@ describe('flickr public feed api', function () {
 
     request.get(apiTest, function (error, response, body) {
 
-      response.statusCode.should.equal(200, 'Invalid http status code');
+      expect(response.statusCode).toBe(200);
 
       var json = jsonpHelper.parseJSONP(body);
-      json.should.have.property('items');
+      expect(json).toHaveProperty('items');
 
       var photos = json.items;
-      photos.length.should.equal(0);
+      expect(photos.length).toBe(0);
 
       done();
 

@@ -1,73 +1,74 @@
-// eslint-disable-next-line no-unused-vars
-var should = require('should');
 var requireHelper = require('../require_helper');
 var formValidator = requireHelper('form_validator');
 
 
-describe('form_validator.js', function () {
+describe('form_validator.js', () => {
 
 
-  describe('isValidCommaDelimitedList(value)', function () {
+  describe('isValidCommaDelimitedList(value)', () => {
 
 
-    it('should return true for valid list of search terms', function () {
+    test('should return true for valid list of search terms', () => {
 
       var tags = 'california, sunset, red';
-      formValidator.isValidCommaDelimitedList(tags).should.be.true;
+      expect(formValidator.isValidCommaDelimitedList(tags)).toBe(true);
 
     });
 
 
-    it('should return true for valid single search term', function () {
+    test('should return true for valid single search term', () => {
 
       var tags = 'dogs';
-      formValidator.isValidCommaDelimitedList(tags).should.be.true;
+      expect(formValidator.isValidCommaDelimitedList(tags)).toBe(true);
 
     });
 
 
-    it('should return false for search term containing numbers', function () {
+    test('should return false for search term containing numbers', () => {
 
       var tags = 'dogs123';
-      formValidator.isValidCommaDelimitedList(tags).should.be.false;
+      expect(formValidator.isValidCommaDelimitedList(tags)).toBe(false);
 
     });
 
 
-    it('should return false for search term containing special characters', function () {
+    test(
+      'should return false for search term containing special characters',
+      () => {
 
-      var tags = 'dogs%$';
-      formValidator.isValidCommaDelimitedList(tags).should.be.false;
+        var tags = 'dogs%$';
+        expect(formValidator.isValidCommaDelimitedList(tags)).toBe(false);
 
-    });
+      }
+    );
 
 
   });
 
 
-  describe('isValidTagmode(value)', function () {
+  describe('isValidTagmode(value)', () => {
 
 
-    it('should return true for valid tagmode "any"', function () {
+    test('should return true for valid tagmode "any"', () => {
 
       var tagmode = 'any';
-      formValidator.isValidTagmode(tagmode).should.be.true;
+      expect(formValidator.isValidTagmode(tagmode)).toBe(true);
 
     });
 
 
-    it('should return true for valid tagmode "all"', function () {
+    test('should return true for valid tagmode "all"', () => {
 
       var tagmode = 'all';
-      formValidator.isValidTagmode(tagmode).should.be.true;
+      expect(formValidator.isValidTagmode(tagmode)).toBe(true);
 
     });
 
 
-    it('should return false for invalid tagmode', function () {
+    test('should return false for invalid tagmode', () => {
 
       var tagmode = 'many';
-      formValidator.isValidTagmode(tagmode).should.be.false;
+      expect(formValidator.isValidTagmode(tagmode)).toBe(false);
 
     });
 
@@ -75,32 +76,32 @@ describe('form_validator.js', function () {
   });
 
 
-  describe('hasValidFlickrAPIParams(tags, tagmode)', function () {
+  describe('hasValidFlickrAPIParams(tags, tagmode)', () => {
 
 
-    it('should return true for valid params', function () {
+    test('should return true for valid params', () => {
 
       var tags = 'dogs, poodles';
       var tagmode = 'all';
-      formValidator.hasValidFlickrAPIParams(tags, tagmode).should.be.true;
+      expect(formValidator.hasValidFlickrAPIParams(tags, tagmode)).toBe(true);
 
     });
 
 
-    it('should return false for invalid tags', function () {
+    test('should return false for invalid tags', () => {
 
       var tags = 'dogs, poodles123';
       var tagmode = 'all';
-      formValidator.hasValidFlickrAPIParams(tags, tagmode).should.be.false;
+      expect(formValidator.hasValidFlickrAPIParams(tags, tagmode)).toBe(false);
 
     });
 
 
-    it('should return false for invalid tagmode', function () {
+    test('should return false for invalid tagmode', () => {
 
       var tags = 'dogs, poodles';
       var tagmode = 'all123';
-      formValidator.hasValidFlickrAPIParams(tags, tagmode).should.be.false;
+      expect(formValidator.hasValidFlickrAPIParams(tags, tagmode)).toBe(false);
 
     });
 

@@ -4,10 +4,10 @@ var app = requireHelper('app');
 var nock = require('nock');
 
 
-describe('index route', function () {
+describe('index route', () => {
 
 
-  it('should respond with a 200 with no query parameters', function (done) {
+  test('should respond with a 200 with no query parameters', done => {
 
     request(app)
       .get('/')
@@ -17,7 +17,7 @@ describe('index route', function () {
   });
 
 
-  it('should respond with a 200 with valid query parameters', function (done) {
+  test('should respond with a 200 with valid query parameters', done => {
 
     // mock the flickr public feed api endpoint
     var jsonpData = 'jsonFlickrFeed({"items": [' +
@@ -41,18 +41,21 @@ describe('index route', function () {
   });
 
 
-  it('should respond with a 200 with invalid query parameters', function (done) {
+  test(
+    'should respond with a 200 with invalid query parameters',
+    done => {
 
-    request(app)
-      .get('/?tags=california123&tagmode=all')
-      .expect('Content-Type', /html/)
-      .expect(200)
-      .expect(/<div class="alert alert-danger">/, done);
+      request(app)
+        .get('/?tags=california123&tagmode=all')
+        .expect('Content-Type', /html/)
+        .expect(200)
+        .expect(/<div class="alert alert-danger">/, done);
 
-  });
+    }
+  );
 
 
-  it('should respond with a 500 error due to bad jsonp data', function (done) {
+  test('should respond with a 500 error due to bad jsonp data', done => {
 
     // mock the flickr public feed api endpoint with invalid jsonp data that's missing parentheses
     var jsonpData = 'jsonFlickrFeed{"items": [' +

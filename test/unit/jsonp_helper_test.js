@@ -1,42 +1,40 @@
-// eslint-disable-next-line no-unused-vars
-var should = require('should');
 var requireHelper = require('../require_helper');
 var jsonpHelper = requireHelper('jsonp_helper');
 
 
-describe('jsonp_helper.js', function () {
+describe('jsonp_helper.js', () => {
 
 
-  describe('parseJSONP(jsonpData)', function () {
+  describe('parseJSONP(jsonpData)', () => {
 
 
-    it('should parse valid jsonp data', function () {
+    test('should parse valid jsonp data', () => {
 
       var jsonpData = 'jsonFlickrFeed({"title": "tagged california"});';
       var jsObject = jsonpHelper.parseJSONP(jsonpData);
-      jsObject.should.be.an.instanceOf(Object).and.have.property('title', 'tagged california');
+      expect(jsObject).to.be.an.instanceOf(Object).toHaveProperty('title', 'tagged california');
 
     });
 
 
-    it('should parse jsonp data with escaped single quotes', function () {
+    test('should parse jsonp data with escaped single quotes', () => {
 
       var jsonpData = 'jsonFlickrFeed({"title": "tagged california\'s coast"});';
       var jsObject = jsonpHelper.parseJSONP(jsonpData);
-      jsObject.should.be.an.instanceOf(Object).and.have.property('title', "tagged california's coast");
+      expect(jsObject).to.be.an.instanceOf(Object).toHaveProperty('title', "tagged california's coast");
 
     });
 
 
-    it('should throw error when parsing invalid jsonp data', function () {
+    test('should throw error when parsing invalid jsonp data', () => {
 
       // invalid json because of missing double quotes around title value
       var jsonpData = 'jsonFlickrFeed({"title": tagged california});';
 
-      (function () {
+      expect(function () {
         // call the add(item) method without passing in an item
         jsonpHelper.parseJSONP(jsonpData);
-      }).should.throw(/^Error coverting jsonp to json/);
+      }).toThrowError(/^Error coverting jsonp to json/);
 
     });
 
