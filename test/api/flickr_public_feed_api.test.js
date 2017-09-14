@@ -1,6 +1,5 @@
 var request = require('request');
-var requireHelper = require('../require_helper');
-var jsonpHelper = requireHelper('jsonp_helper');
+var jsonpHelper = require('../../app/jsonp_helper');
 
 
 function API (params) {

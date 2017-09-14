@@ -1,8 +1,7 @@
 var request = require('supertest');
-var requireHelper = require('../require_helper');
 
 process.env.PORT = 3001;
-var app = requireHelper('app');
+var app = require('../../app/app');
 var nock = require('nock');
 
 

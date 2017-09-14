@@ -1,5 +1,4 @@
-var requireHelper = require('../require_helper');
-var formValidator = requireHelper('form_validator');
+var formValidator = require('../../app/form_validator');
 
 
 describe('form_validator.js', () => {
