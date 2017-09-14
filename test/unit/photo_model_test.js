@@ -30,10 +30,17 @@ describe('photo_model.js', () => {
         if (error !== null) {
           expect(error).toBeFalsy();
         }
-        expect(photos).toBeInstanceOf(Object);
-        expect(photos.length).toBeGreaterThan(0);
-        expect(photos[0]).to.have.properties('title', 'media');
-        expect(photos[0].media).to.have.properties('t', 'm', 'b');
+
+        var expectedSubset = [{
+          title: 'Boating',
+          media: {
+            t: expect.stringMatching(/t.jpg/),
+            m: expect.stringMatching(/m.jpg/),
+            b: expect.stringMatching(/b.jpg/)
+          }
+        }];
+
+        expect(photos).toEqual(expect.arrayContaining(expectedSubset));
 
       });
 
@@ -51,7 +58,7 @@ describe('photo_model.js', () => {
       photoModel.getFlickrPhotos('california', 'all', function (error, photos) {
 
         expect(error).toBeDefined();
-        expect(error).toMatch(/Flickr public feed api error/);
+        expect(error.toString()).toMatch(/Flickr public feed api error/);
         expect(photos).toBeFalsy();
 
       });
@@ -77,7 +84,7 @@ describe('photo_model.js', () => {
       photoModel.getFlickrPhotos('california', 'all', function (error, photos) {
 
         expect(error).toBeDefined();
-        expect(error).toMatch(/Flickr public feed api error/);
+        expect(error.toString()).toMatch(/Flickr public feed api error/);
         expect(photos).toBeFalsy();
 
       });

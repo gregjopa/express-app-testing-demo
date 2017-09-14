@@ -35,7 +35,7 @@ describe('flickr public feed api', () => {
 
       photos.forEach(function (photo) {
 
-        expect(photo).toEqual(expect.arrayContaining([
+        expect(Object.keys(photo)).toEqual(expect.arrayContaining([
           'title',
           'link',
           'media',

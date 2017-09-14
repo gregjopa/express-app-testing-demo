@@ -12,7 +12,9 @@ describe('jsonp_helper.js', () => {
 
       var jsonpData = 'jsonFlickrFeed({"title": "tagged california"});';
       var jsObject = jsonpHelper.parseJSONP(jsonpData);
-      expect(jsObject).to.be.an.instanceOf(Object).toHaveProperty('title', 'tagged california');
+      expect(jsObject).toMatchObject({
+        title: 'tagged california'
+      });
 
     });
 
@@ -21,8 +23,9 @@ describe('jsonp_helper.js', () => {
 
       var jsonpData = 'jsonFlickrFeed({"title": "tagged california\'s coast"});';
       var jsObject = jsonpHelper.parseJSONP(jsonpData);
-      expect(jsObject).to.be.an.instanceOf(Object).toHaveProperty('title', "tagged california's coast");
-
+      expect(jsObject).toMatchObject({
+        title: "tagged california's coast"
+      });
     });
 
 
