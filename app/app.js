@@ -1,6 +1,8 @@
 var express = require('express');
-var app = module.exports = express();
+var favicon = require('serve-favicon');
+var path = require('path');
 
+var app = module.exports = express();
 var formValidator = require('./form_validator');
 var photoModel = require('./photo_model');
 
@@ -8,16 +10,16 @@ var photoModel = require('./photo_model');
 
 
 // public assets
-app.use(express.static(__dirname + '/public'));
-app.use(express.favicon(__dirname + '/public/images/favicon.ico'));
-app.use('/coverage', express.static(__dirname + '/../coverage'));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(favicon(path.join(__dirname, 'public/images', 'favicon.ico')));
+app.use('/coverage', express.static(path.join(__dirname, '..', 'coverage')));
 
 
 
 
 // ejs for view templates
 app.engine('.html', require('ejs').__express);
-app.set('views', __dirname + '/views');
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
 
 
@@ -26,8 +28,8 @@ app.set('view engine', 'html');
 // route
 app.get('/', function (req, res) {
 
-  var tags = req.param('tags');
-  var tagmode = req.param('tagmode');
+  var tags = req.query.tags;
+  var tagmode = req.query.tagmode;
 
   var ejsLocalVariables = {
     tagsParameter: tags || '',
