@@ -9,7 +9,7 @@
   "main": "app/app.js",
   "scripts": {
     "start": "nodemon app/app.js",
-    "test": "jest test/{unit,route}/*.test.js",
+    "test": "jest test/{unit,route}/*.test.js --coverage",
     "test:api": "jest --runInBand test/api/*.test.js",
     "lint": "eslint app/** test/** --ignore-pattern test/coverage"
   },
