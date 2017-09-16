@@ -4,16 +4,13 @@ function isValidCommaDelimitedList(value) {
   return commaDelimitedListRegEx.test(value);
 }
 
-
 function isValidTagmode(value) {
   return value === 'all' || value === 'any';
 }
 
-
 function hasValidFlickrAPIParams(tags, tagmode) {
   return isValidCommaDelimitedList(tags) && isValidTagmode(tagmode);
 }
-
 
 module.exports = {
   isValidCommaDelimitedList,

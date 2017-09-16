@@ -11,7 +11,8 @@
     "start": "nodemon app/app.js",
     "test": "jest test/{unit,route}/*.test.js --coverage",
     "test:api": "jest --runInBand test/api/*.test.js",
-    "lint": "eslint app/** test/** --ignore-pattern test/coverage"
+    "lint": "eslint app/** test/** --ignore-pattern test/coverage",
+    "prettier": "prettier --single-quote --write app/*.js test/**/*.test.js"
   },
   "dependencies": {
     "ejs": "~2.5.7",
@@ -24,10 +25,14 @@
     "jest": "^21.0.2",
     "nock": "~9.0.14",
     "nodemon": "^1.12.0",
+    "prettier": "^1.7.0",
     "supertest": "~3.0.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/gregjopa/express-app-testing-demo"
+  },
+  "prettier": {
+
   }
 }
