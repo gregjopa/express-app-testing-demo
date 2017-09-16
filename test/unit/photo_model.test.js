@@ -1,5 +1,5 @@
-var nock = require('nock');
-var photoModel = require('../../app/photo_model');
+const nock = require('nock');
+const photoModel = require('../../app/photo_model');
 
 
 describe('photo_model.js', () => {
@@ -11,15 +11,25 @@ describe('photo_model.js', () => {
     test('should return photos', () => {
 
       // mock the flickr public feed api endpoint
-      var jsonpData = 'jsonFlickrFeed({"items": [' +
-        '{ "title": "Boating",' +
-          '"media": {"m":"http://farm4.staticflickr.com/3727/12608622365_9e9b8b377d_m.jpg"} },' +
-        '{ "title": "Signs",' +
-          '"media": {"m":"http://farm8.staticflickr.com/7446/12608714423_efaf73400c_m.jpg"} }' +
-        ']})';
+      const jsonpData = `jsonFlickrFeed({
+        "items": [
+          {
+            "title": "Boating",
+            "media": {
+              "m": "http://farm4.staticflickr.com/3727/12608622365_9e9b8b377d_m.jpg"
+            }
+          },
+          {
+            "title": "Signs",
+            "media": {
+              "m": "http://farm8.staticflickr.com/7446/12608714423_efaf73400c_m.jpg"
+            }
+          }
+        ]
+      })`;
 
       // eslint-disable-next-line no-unused-vars
-      var flickrFeedApi = nock('http://api.flickr.com')
+      const flickrFeedApi = nock('http://api.flickr.com')
         .get('/services/feeds/photos_public.gne?tags=california&tagmode=all&format=json')
         .reply(200, jsonpData);
 
@@ -30,7 +40,7 @@ describe('photo_model.js', () => {
           expect(error).toBeFalsy();
         }
 
-        var expectedSubset = [{
+        const expectedSubset = [{
           title: 'Boating',
           media: {
             t: expect.stringMatching(/t.jpg/),
@@ -50,7 +60,7 @@ describe('photo_model.js', () => {
 
       // mock the flickr public feed api endpoint and return a 500 error
       // eslint-disable-next-line no-unused-vars
-      var flickrFeedApi = nock('http://api.flickr.com')
+      const flickrFeedApi = nock('http://api.flickr.com')
         .get('/services/feeds/photos_public.gne?tags=california&tagmode=all&format=json')
         .reply(500);
 
@@ -68,15 +78,19 @@ describe('photo_model.js', () => {
     test('should error with invalid jsonp data', () => {
 
       // mock the flickr public feed api endpoint with invalid jsonp data that's missing parentheses
-      var jsonpData = 'jsonFlickrFeed{"items": [' +
-        '{ "title": "Boating",' +
-          '"media": {"m":"http://farm4.staticflickr.com/3727/12608622365_9e9b8b377d_m.jpg"} },' +
-        '{ "title": "Signs",' +
-          '"media": {"m":"http://farm8.staticflickr.com/7446/12608714423_efaf73400c_m.jpg"} }' +
-        ']}';
+      const jsonpData = `jsonFlickrFeed{
+        "items": [
+          {
+            "title": "Boating",
+            "media": {
+              "m": "http://farm4.staticflickr.com/3727/12608622365_9e9b8b377d_m.jpg"
+            }
+          }
+        ]
+      }`;
 
       // eslint-disable-next-line no-unused-vars
-      var flickrFeedApi = nock('http://api.flickr.com')
+      const flickrFeedApi = nock('http://api.flickr.com')
         .get('/services/feeds/photos_public.gne?tags=california&tagmode=all&format=json')
         .reply(200, jsonpData);
 

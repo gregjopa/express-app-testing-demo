@@ -1,10 +1,10 @@
-var express = require('express');
-var favicon = require('serve-favicon');
-var path = require('path');
+const express = require('express');
+const favicon = require('serve-favicon');
+const path = require('path');
 
-var app = module.exports = express();
-var formValidator = require('./form_validator');
-var photoModel = require('./photo_model');
+const app = module.exports = express();
+const formValidator = require('./form_validator');
+const photoModel = require('./photo_model');
 
 
 
@@ -26,12 +26,12 @@ app.set('view engine', 'html');
 
 
 // route
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
 
-  var tags = req.query.tags;
-  var tagmode = req.query.tagmode;
+  const tags = req.query.tags;
+  const tagmode = req.query.tagmode;
 
-  var ejsLocalVariables = {
+  const ejsLocalVariables = {
     tagsParameter: tags || '',
     tagmodeParameter: tagmode || '',
     photos: [],
@@ -54,7 +54,7 @@ app.get('/', function (req, res) {
 
 
   // get photos from flickr public feed api
-  photoModel.getFlickrPhotos(tags, tagmode, function (error, photos) {
+  photoModel.getFlickrPhotos(tags, tagmode, (error, photos) => {
 
     if (error) {
       // console.error(error);
@@ -74,6 +74,6 @@ app.get('/', function (req, res) {
 
 
 // server
-var port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 app.server = app.listen(port);
-console.log('listening on port ' + port);
+console.log(`listening on port ${port}`);

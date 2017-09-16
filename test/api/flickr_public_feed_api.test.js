@@ -1,14 +1,16 @@
-var request = require('request');
-var jsonpHelper = require('../../app/jsonp_helper');
+const request = require('request');
+const jsonpHelper = require('../../app/jsonp_helper');
 
 
-function API (params) {
-  this.uri = 'http://api.flickr.com/services/feeds/photos_public.gne';
-  this.qs = {
-    tags: params.tags || '',
-    tagmode: params.tagmode || '',
-    format: params.format || 'json'
-  };
+class API {
+  constructor(params) {
+    this.uri = 'http://api.flickr.com/services/feeds/photos_public.gne';
+    this.qs = {
+      tags: params.tags || '',
+      tagmode: params.tagmode || '',
+      format: params.format || 'json'
+    };
+  }
 }
 
 
@@ -17,7 +19,7 @@ describe('flickr public feed api', () => {
 
   test('should return expected json format', done => {
 
-    var apiTest = new API({
+    const apiTest = new API({
       tags: 'california',
       tagmode: 'all'
     });
@@ -26,10 +28,10 @@ describe('flickr public feed api', () => {
 
       expect(response.statusCode).toBe(200);
 
-      var json = jsonpHelper.parseJSONP(body);
+      const json = jsonpHelper.parseJSONP(body);
       expect(json).toHaveProperty('items');
 
-      var photos = json.items;
+      const photos = json.items;
       expect(photos).toBeInstanceOf(Array);
 
       photos.forEach(function (photo) {
@@ -57,7 +59,7 @@ describe('flickr public feed api', () => {
 
   test('should return many photos', done => {
 
-    var apiTest = new API({
+    const apiTest = new API({
       tags: 'california, beach, blue',
       tagmode: 'any'
     });
@@ -66,10 +68,10 @@ describe('flickr public feed api', () => {
 
       expect(response.statusCode).toBe(200);
 
-      var json = jsonpHelper.parseJSONP(body);
+      const json = jsonpHelper.parseJSONP(body);
       expect(json).toHaveProperty('items');
 
-      var photos = json.items;
+      const photos = json.items;
       expect(photos.length).toBeGreaterThan(0);
 
       done();
@@ -82,7 +84,7 @@ describe('flickr public feed api', () => {
   test('should return zero photos', done => {
 
     // these tags should return zero results
-    var apiTest = new API({
+    const apiTest = new API({
       tags: 'bad,parameters,abc,111,999',
       tagmode: 'all'
     });
@@ -91,10 +93,10 @@ describe('flickr public feed api', () => {
 
       expect(response.statusCode).toBe(200);
 
-      var json = jsonpHelper.parseJSONP(body);
+      const json = jsonpHelper.parseJSONP(body);
       expect(json).toHaveProperty('items');
 
-      var photos = json.items;
+      const photos = json.items;
       expect(photos.length).toBe(0);
 
       done();

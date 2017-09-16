@@ -1,4 +1,4 @@
-var jsonpHelper = require('../../app/jsonp_helper');
+const jsonpHelper = require('../../app/jsonp_helper');
 
 
 describe('jsonp_helper.js', () => {
@@ -9,8 +9,8 @@ describe('jsonp_helper.js', () => {
 
     test('should parse valid jsonp data', () => {
 
-      var jsonpData = 'jsonFlickrFeed({"title": "tagged california"});';
-      var jsObject = jsonpHelper.parseJSONP(jsonpData);
+      const jsonpData = 'jsonFlickrFeed({"title": "tagged california"});';
+      const jsObject = jsonpHelper.parseJSONP(jsonpData);
       expect(jsObject).toMatchObject({
         title: 'tagged california'
       });
@@ -20,8 +20,8 @@ describe('jsonp_helper.js', () => {
 
     test('should parse jsonp data with escaped single quotes', () => {
 
-      var jsonpData = 'jsonFlickrFeed({"title": "tagged california\'s coast"});';
-      var jsObject = jsonpHelper.parseJSONP(jsonpData);
+      const jsonpData = 'jsonFlickrFeed({"title": "tagged california\'s coast"});';
+      const jsObject = jsonpHelper.parseJSONP(jsonpData);
       expect(jsObject).toMatchObject({
         title: "tagged california's coast"
       });
@@ -31,7 +31,7 @@ describe('jsonp_helper.js', () => {
     test('should throw error when parsing invalid jsonp data', () => {
 
       // invalid json because of missing double quotes around title value
-      var jsonpData = 'jsonFlickrFeed({"title": tagged california});';
+      const jsonpData = 'jsonFlickrFeed({"title": tagged california});';
 
       expect(function () {
         // call the add(item) method without passing in an item

@@ -1,8 +1,8 @@
-var request = require('supertest');
+const request = require('supertest');
 
 process.env.PORT = 3001;
-var app = require('../../app/app');
-var nock = require('nock');
+const app = require('../../app/app');
+const nock = require('nock');
 
 
 describe('index route', () => {
@@ -25,15 +25,26 @@ describe('index route', () => {
   test('should respond with a 200 with valid query parameters', done => {
 
     // mock the flickr public feed api endpoint
-    var jsonpData = 'jsonFlickrFeed({"items": [' +
-      '{ "title": "Boating",' +
-        '"media": {"m":"http://farm4.staticflickr.com/3727/12608622365_9e9b8b377d_m.jpg"} },' +
-      '{ "title": "Signs",' +
-        '"media": {"m":"http://farm8.staticflickr.com/7446/12608714423_efaf73400c_m.jpg"} }' +
-      ']})';
+      const jsonpData = `jsonFlickrFeed({
+        "items": [
+          {
+            "title": "Boating",
+            "media": {
+              "m": "http://farm4.staticflickr.com/3727/12608622365_9e9b8b377d_m.jpg"
+            }
+          },
+          {
+            "title": "Signs",
+            "media": {
+              "m": "http://farm8.staticflickr.com/7446/12608714423_efaf73400c_m.jpg"
+            }
+          }
+        ]
+      })`;
+
 
     // eslint-disable-next-line no-unused-vars
-    var flickrFeedApi = nock('http://api.flickr.com')
+    const flickrFeedApi = nock('http://api.flickr.com')
       .get('/services/feeds/photos_public.gne?tags=california&tagmode=all&format=json')
       .reply(200, jsonpData);
 
@@ -63,15 +74,19 @@ describe('index route', () => {
   test('should respond with a 500 error due to bad jsonp data', done => {
 
     // mock the flickr public feed api endpoint with invalid jsonp data that's missing parentheses
-    var jsonpData = 'jsonFlickrFeed{"items": [' +
-      '{ "title": "Boating",' +
-        '"media": {"m":"http://farm4.staticflickr.com/3727/12608622365_9e9b8b377d_m.jpg"} },' +
-      '{ "title": "Signs",' +
-        '"media": {"m":"http://farm8.staticflickr.com/7446/12608714423_efaf73400c_m.jpg"} }' +
-      ']}';
+    const jsonpData = `jsonFlickrFeed{
+      "items": [
+        {
+          "title": "Boating",
+          "media": {
+            "m": "http://farm4.staticflickr.com/3727/12608622365_9e9b8b377d_m.jpg"
+          }
+        }
+      ]
+    }`;
 
     // eslint-disable-next-line no-unused-vars
-    var flickrFeedApi = nock('http://api.flickr.com')
+    const flickrFeedApi = nock('http://api.flickr.com')
       .get('/services/feeds/photos_public.gne?tags=california&tagmode=all&format=json')
       .reply(200, jsonpData);
 
