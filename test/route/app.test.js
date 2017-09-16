@@ -7,6 +7,10 @@ var nock = require('nock');
 
 describe('index route', () => {
 
+  afterEach(() => {
+    app.server.close();
+  });
+
 
   test('should respond with a 200 with no query parameters', done => {
 
