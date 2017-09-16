@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1505439303751" clover="3.2.0">
-  <project timestamp="1505439303752" name="All files">
+<coverage generated="1505521360299" clover="3.2.0">
+  <project timestamp="1505521360300" name="All files">
     <metrics statements="64" coveredstatements="63" conditionals="22" coveredconditionals="20" methods="9" coveredmethods="9" elements="95" coveredelements="92" complexity="0" loc="64" ncloc="64" packages="1" files="4" classes="4">
       <file name="app.js" path="/Users/gregjopa/Documents/git/express-app-testing-demo/app/app.js">
         <metrics statements="30" coveredstatements="30" conditionals="14" coveredconditionals="13" methods="2" coveredmethods="2"/>
