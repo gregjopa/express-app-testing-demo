@@ -36,7 +36,7 @@ describe('jsonp_helper.js', () => {
       expect(function () {
         // call the add(item) method without passing in an item
         jsonpHelper.parseJSONP(jsonpData);
-      }).toThrowError(/^Error coverting jsonp to json/);
+      }).toThrowError(/Failed to convert jsonp to json/);
 
     });
 

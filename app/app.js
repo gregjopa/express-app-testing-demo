@@ -54,19 +54,15 @@ app.get('/', (req, res) => {
 
 
   // get photos from flickr public feed api
-  photoModel.getFlickrPhotos(tags, tagmode, (error, photos) => {
-
-    if (error) {
-      // console.error(error);
-      return res.send(500, 'Internal Server Error');
-    }
-
-    ejsLocalVariables.photos = photos;
-    ejsLocalVariables.searchResults = true;
-    res.render('index', ejsLocalVariables);
-
-  });
-
+  return photoModel.getFlickrPhotos(tags, tagmode)
+    .then(photos => {
+      ejsLocalVariables.photos = photos;
+      ejsLocalVariables.searchResults = true;
+      return res.render('index', ejsLocalVariables);
+    })
+    .catch(error => {
+      return res.status(500).send({ error });
+    });
 
 });
 

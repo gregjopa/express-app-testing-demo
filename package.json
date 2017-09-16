@@ -16,7 +16,7 @@
   "dependencies": {
     "ejs": "~2.5.7",
     "express": "~4.15.4",
-    "request": "~2.81.0",
+    "got": "^7.1.0",
     "serve-favicon": "^2.4.4"
   },
   "devDependencies": {

@@ -11,7 +11,7 @@ function parseJSONP(jsonpData) {
     return JSON.parse(jsonString);
   }
   catch (e) {
-    const error = new Error(`Error coverting jsonp to json: ${e.message}`);
+    const error = new Error(`Failed to convert jsonp to json. ${e.message}`);
     throw error;
   }
 

@@ -1,15 +1,17 @@
-const request = require('request');
+const got = require('got');
+const querystring = require('querystring');
 const jsonpHelper = require('../../app/jsonp_helper');
 
 
 class API {
   constructor(params) {
-    this.uri = 'http://api.flickr.com/services/feeds/photos_public.gne';
-    this.qs = {
+    const qs = querystring.stringify({
       tags: params.tags || '',
       tagmode: params.tagmode || '',
       format: params.format || 'json'
-    };
+    });
+    this.hostname = 'api.flickr.com';
+    this.path = `/services/feeds/photos_public.gne?${qs}`;
   }
 }
 
@@ -17,71 +19,70 @@ class API {
 describe('flickr public feed api', () => {
 
 
-  test('should return expected json format', done => {
+  test('should return expected json format', () => {
 
     const apiTest = new API({
       tags: 'california',
       tagmode: 'all'
     });
 
-    request.get(apiTest, function (error, response, body) {
+    return got(apiTest)
+      .then(response => {
 
-      expect(response.statusCode).toBe(200);
+        expect(response.statusCode).toBe(200);
 
-      const json = jsonpHelper.parseJSONP(body);
-      expect(json).toHaveProperty('items');
+        const photoFeed = jsonpHelper.parseJSONP(response.body);
+        expect(photoFeed).toHaveProperty('items');
 
-      const photos = json.items;
-      expect(photos).toBeInstanceOf(Array);
+        const photos = photoFeed.items;
+        expect(photos).toBeInstanceOf(Array);
 
-      photos.forEach(function (photo) {
+        photos.forEach(function (photo) {
 
-        expect(Object.keys(photo)).toEqual(expect.arrayContaining([
-          'title',
-          'link',
-          'media',
-          'date_taken',
-          'description',
-          'published',
-          'author',
-          'author_id',
-          'tags'
-        ]));
+          expect(Object.keys(photo)).toEqual(expect.arrayContaining([
+            'title',
+            'link',
+            'media',
+            'date_taken',
+            'description',
+            'published',
+            'author',
+            'author_id',
+            'tags'
+          ]));
+
+        });
 
       });
-
-      done();
-
-    });
 
   });
 
 
-  test('should return many photos', done => {
+
+  test('should return many photos', () => {
 
     const apiTest = new API({
       tags: 'california, beach, blue',
       tagmode: 'any'
     });
 
-    request.get(apiTest, function (error, response, body) {
+    return got(apiTest)
+      .then(response => {
 
-      expect(response.statusCode).toBe(200);
+        expect(response.statusCode).toBe(200);
 
-      const json = jsonpHelper.parseJSONP(body);
-      expect(json).toHaveProperty('items');
+        const photoFeed = jsonpHelper.parseJSONP(response.body);
+        expect(photoFeed).toHaveProperty('items');
 
-      const photos = json.items;
-      expect(photos.length).toBeGreaterThan(0);
+        const photos = photoFeed.items;
+        expect(photos.length).toBeGreaterThan(0);
 
-      done();
-
-    });
+      });
 
   });
 
 
-  test('should return zero photos', done => {
+  test('should return zero photos', () => {
 
     // these tags should return zero results
     const apiTest = new API({
@@ -89,19 +90,18 @@ describe('flickr public feed api', () => {
       tagmode: 'all'
     });
 
-    request.get(apiTest, function (error, response, body) {
+    return got(apiTest)
+      .then(response => {
 
-      expect(response.statusCode).toBe(200);
+        expect(response.statusCode).toBe(200);
 
-      const json = jsonpHelper.parseJSONP(body);
-      expect(json).toHaveProperty('items');
+        const photoFeed = jsonpHelper.parseJSONP(response.body);
+        expect(photoFeed).toHaveProperty('items');
 
-      const photos = json.items;
-      expect(photos.length).toBe(0);
+        const photos = photoFeed.items;
+        expect(photos.length).toBe(0);
 
-      done();
-
-    });
+      });
 
   });
 

@@ -33,25 +33,19 @@ describe('photo_model.js', () => {
         .get('/services/feeds/photos_public.gne?tags=california&tagmode=all&format=json')
         .reply(200, jsonpData);
 
-
-      photoModel.getFlickrPhotos('california', 'all', function (error, photos) {
-
-        if (error !== null) {
-          expect(error).toBeFalsy();
+      const expectedSubset = [{
+        title: 'Boating',
+        media: {
+          t: expect.stringMatching(/t.jpg/),
+          m: expect.stringMatching(/m.jpg/),
+          b: expect.stringMatching(/b.jpg/)
         }
+      }];
 
-        const expectedSubset = [{
-          title: 'Boating',
-          media: {
-            t: expect.stringMatching(/t.jpg/),
-            m: expect.stringMatching(/m.jpg/),
-            b: expect.stringMatching(/b.jpg/)
-          }
-        }];
-
-        expect(photos).toEqual(expect.arrayContaining(expectedSubset));
-
-      });
+      return photoModel.getFlickrPhotos('california', 'all')
+        .then(photos => {
+          expect(photos).toEqual(expect.arrayContaining(expectedSubset));
+        });
 
     });
 
@@ -64,13 +58,10 @@ describe('photo_model.js', () => {
         .get('/services/feeds/photos_public.gne?tags=california&tagmode=all&format=json')
         .reply(500);
 
-      photoModel.getFlickrPhotos('california', 'all', function (error, photos) {
-
-        expect(error).toBeDefined();
-        expect(error.toString()).toMatch(/Flickr public feed api error/);
-        expect(photos).toBeFalsy();
-
-      });
+      return photoModel.getFlickrPhotos('california', 'all')
+        .catch(error => {
+          expect(error.toString()).toMatch(/Response code 500/);
+        });
 
     });
 
@@ -94,13 +85,10 @@ describe('photo_model.js', () => {
         .get('/services/feeds/photos_public.gne?tags=california&tagmode=all&format=json')
         .reply(200, jsonpData);
 
-      photoModel.getFlickrPhotos('california', 'all', function (error, photos) {
-
-        expect(error).toBeDefined();
-        expect(error.toString()).toMatch(/Flickr public feed api error/);
-        expect(photos).toBeFalsy();
-
-      });
+      return photoModel.getFlickrPhotos('california', 'all')
+        .catch(error => {
+          expect(error.toString()).toMatch(/Failed to convert jsonp to json/);
+        });
 
     });
 
