@@ -11,7 +11,7 @@ function route(app) {
       tagmodeParameter: tagmode || '',
       photos: [],
       searchResults: false,
-      invalidParamters: false
+      invalidParameters: false
     };
 
     // if no input params are passed in then render the view with out querying the api
@@ -21,7 +21,7 @@ function route(app) {
 
     // validate query parameters
     if (!formValidator.hasValidFlickrAPIParams(tags, tagmode)) {
-      ejsLocalVariables.invalidParamters = true;
+      ejsLocalVariables.invalidParameters = true;
       return res.render('index', ejsLocalVariables);
     }
 
