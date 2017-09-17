@@ -1,7 +1,7 @@
 const request = require('supertest');
 
 process.env.PORT = 3001;
-const app = require('../../app/app');
+const app = require('../../app/server');
 const nock = require('nock');
 
 describe('index route', () => {

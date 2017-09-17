@@ -6,9 +6,9 @@
     "node": ">=6.11.x"
   },
   "private": true,
-  "main": "app/app.js",
+  "main": "app/server.js",
   "scripts": {
-    "start": "nodemon app/app.js",
+    "start": "nodemon app/server.js",
     "test": "jest test/{unit,route}/*.test.js --coverage",
     "test:api": "jest --runInBand test/api/*.test.js",
     "lint": "eslint app/** test/** --ignore-pattern test/coverage",
