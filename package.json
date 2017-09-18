@@ -1,7 +1,7 @@
 {
   "name": "express-app-testing-demo",
   "description": "a simple express app for demonstrating testing and code coverage",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
     "node": ">=6.11.x"
   },
