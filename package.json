@@ -9,10 +9,11 @@
   "main": "app/server.js",
   "scripts": {
     "start": "nodemon app/server.js",
-    "test": "jest test/{unit,route}/*.test.js --coverage",
-    "test:api": "jest --runInBand test/api/*.test.js",
-    "lint": "eslint app/** test/** --ignore-pattern test/coverage",
-    "prettier": "prettier --single-quote --write app/*.js test/**/*.test.js"
+    "test": "npm run lint && npm run jest",
+    "test:e2e": "jest --runInBand e2e_tests/*.test.js",
+    "jest": "jest --coverage --verbose app/__tests__/*.test.js",
+    "lint": "eslint app/** e2e_tests/*",
+    "prettier": "prettier --write app/*.js app/__{tests,mocks}__/*.js e2e_tests/*.js"
   },
   "dependencies": {
     "ejs": "~2.5.7",
@@ -32,6 +33,6 @@
     "url": "https://github.com/gregjopa/express-app-testing-demo"
   },
   "prettier": {
-
+    "singleQuote": true
   }
 }

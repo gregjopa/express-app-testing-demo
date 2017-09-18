@@ -1,6 +1,6 @@
 const got = require('got');
 const querystring = require('querystring');
-const jsonpHelper = require('../../app/jsonp_helper');
+const jsonpHelper = require('../app/jsonp_helper');
 
 class API {
   constructor(params) {
