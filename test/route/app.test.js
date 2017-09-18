@@ -1,8 +1,8 @@
 const request = require('supertest');
 
 process.env.PORT = 3001;
+jest.mock('../../app/photo_model');
 const app = require('../../app/server');
-const nock = require('nock');
 
 describe('index route', () => {
   afterEach(() => {
@@ -17,31 +17,6 @@ describe('index route', () => {
   });
 
   test('should respond with a 200 with valid query parameters', done => {
-    // mock the flickr public feed api endpoint
-    const jsonpData = `jsonFlickrFeed({
-        "items": [
-          {
-            "title": "Boating",
-            "media": {
-              "m": "http://farm4.staticflickr.com/3727/12608622365_9e9b8b377d_m.jpg"
-            }
-          },
-          {
-            "title": "Signs",
-            "media": {
-              "m": "http://farm8.staticflickr.com/7446/12608714423_efaf73400c_m.jpg"
-            }
-          }
-        ]
-      })`;
-
-    // eslint-disable-next-line no-unused-vars
-    const flickrFeedApi = nock('http://api.flickr.com')
-      .get(
-        '/services/feeds/photos_public.gne?tags=california&tagmode=all&format=json'
-      )
-      .reply(200, jsonpData);
-
     request(app)
       .get('/?tags=california&tagmode=all')
       .expect('Content-Type', /html/)
@@ -58,27 +33,8 @@ describe('index route', () => {
   });
 
   test('should respond with a 500 error due to bad jsonp data', done => {
-    // mock the flickr public feed api endpoint with invalid jsonp data that's missing parentheses
-    const jsonpData = `jsonFlickrFeed{
-      "items": [
-        {
-          "title": "Boating",
-          "media": {
-            "m": "http://farm4.staticflickr.com/3727/12608622365_9e9b8b377d_m.jpg"
-          }
-        }
-      ]
-    }`;
-
-    // eslint-disable-next-line no-unused-vars
-    const flickrFeedApi = nock('http://api.flickr.com')
-      .get(
-        '/services/feeds/photos_public.gne?tags=california&tagmode=all&format=json'
-      )
-      .reply(200, jsonpData);
-
     request(app)
-      .get('/?tags=california&tagmode=all')
+      .get('/?tags=error&tagmode=all')
       .expect(500, done);
   });
 });
