@@ -1,34 +1,31 @@
 # express-app-testing-demo
 
-This is a simple express.js app for demonstrating testing and code coverage.
-[Mocha](http://mochajs.org/) and
-[Supertest](https://github.com/visionmedia/supertest) are used for unit and integration testing.
-[Istanbul](http://gotwarlost.github.io/istanbul/) is used for viewing code coverage. Note that this
-app only focuses on server-side JavaScript testing.
+This project is a simple express app for demonstrating testing and code coverage.
+[Jest](https://facebook.github.io/jest/) and
+[Supertest](https://github.com/visionmedia/supertest) are used for testing.
+Jest is also used for mocking functions and measuring code coverage.
+Note that this app only focuses on server-side JavaScript testing.
 
 
 ## Requirements
 
-* Node.js - [http://nodejs.org](http://nodejs.org)
-* Grunt.js - run `sudo npm install -g grunt-cli`
+* Node.js - [https://nodejs.org/](https://nodejs.org/)
 
 
 ## Getting Started
 
 * Clone the repo
 * Install dependencies with `npm install`
-* Run development server with `grunt` and go here:
+* Run server with `npm start` and go here:
 [http://localhost:3000/](http://localhost:3000/)
 
 
 ## Running Tests
 
-* Run all tests: `grunt test`
-* Run unit tests: `grunt mochaTest:unit`
-* Run route tests: `grunt mochaTest:route`
-* Run api tests: `grunt mochaTest:api`
+* Run unit and integration tests: `npm test`
+* Run end-to-end tests: `npm run test:e2e`
 
+## Code Coverage Report
 
-## Running Code Coverage Report
-
-Build the code coverage report with `grunt coverage`.
+A new code coverage report is generated everytime `npm test` runs.
+View the coverage report in coverage/lcov-report/index.html.
