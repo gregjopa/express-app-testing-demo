@@ -6,6 +6,7 @@ function getFlickrPhotos(tags, tagmode) {
   const qs = querystring.stringify({ tags, tagmode, format: 'json' });
 
   const options = {
+    protocol: 'https:',
     hostname: 'api.flickr.com',
     path: `/services/feeds/photos_public.gne?${qs}`,
     timeout: 10000
