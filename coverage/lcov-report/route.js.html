@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for photo_model.js</title>
+    <title>Code coverage report for route.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -16,28 +16,28 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="index.html">All files</a> photo_model.js
+      <a href="index.html">All files</a> route.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>12/12</span>
+        <span class='fraction'>17/17</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>10/10</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/3</span>
+        <span class='fraction'>4/4</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>12/12</span>
+        <span class='fraction'>17/17</span>
       </div>
     </div>
   </div>
@@ -72,64 +72,103 @@
 27
 28
 29
-30</td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const got = require('got');
-const querystring = require('querystring');
-const jsonpHelper = require('./jsonp_helper');
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const formValidator = require('./form_validator');
+const photoModel = require('./photo_model');
 &nbsp;
-function getFlickrPhotos(tags, tagmode) {
-  const qs = querystring.stringify({ tags, tagmode, format: 'json' });
+function route(app) {
+  app.get('/', (req, res) =&gt; {
+    const tags = req.query.tags;
+    const tagmode = req.query.tagmode;
 &nbsp;
-  const options = {
-    protocol: 'https:',
-    hostname: 'api.flickr.com',
-    path: `/services/feeds/photos_public.gne?${qs}`,
-    timeout: 10000
-  };
+    const ejsLocalVariables = {
+      tagsParameter: tags || '',
+      tagmodeParameter: tagmode || '',
+      photos: [],
+      searchResults: false,
+      invalidParameters: false
+    };
 &nbsp;
-  return got(options).then(response =&gt; {
-    const photoFeed = jsonpHelper.parseJSONP(response.body);
+    // if no input params are passed in then render the view with out querying the api
+    if (!tags &amp;&amp; !tagmode) {
+      return res.render('index', ejsLocalVariables);
+    }
 &nbsp;
-    photoFeed.items.forEach(photo =&gt; {
-      photo.media.t = photo.media.m.split('m.jpg')[0] + 't.jpg';
-      photo.media.b = photo.media.m.split('m.jpg')[0] + 'b.jpg';
-    });
+    // validate query parameters
+    if (!formValidator.hasValidFlickrAPIParams(tags, tagmode)) {
+      ejsLocalVariables.invalidParameters = true;
+      return res.render('index', ejsLocalVariables);
+    }
 &nbsp;
-    return photoFeed.items;
+    // get photos from flickr public feed api
+    return photoModel
+      .getFlickrPhotos(tags, tagmode)
+      .then(photos =&gt; {
+        ejsLocalVariables.photos = photos;
+        ejsLocalVariables.searchResults = true;
+        return res.render('index', ejsLocalVariables);
+      })
+      .catch(error =&gt; {
+        return res.status(500).send({ error });
+      });
   });
 }
 &nbsp;
-module.exports = {
-  getFlickrPhotos
-};
+module.exports = route;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
