@@ -27,5 +27,7 @@ Note that this app only focuses on server-side JavaScript testing.
 
 ## Code Coverage Report
 
-A new code coverage report is generated everytime `npm test` runs.
-View the coverage report in coverage/lcov-report/index.html.
+A new code coverage report is generated every time `npm test` runs.
+Normally this coverage report is ignored by git.
+This project includes it in source control so the coverage report can be viewed in the demo app:
+[http://express-app-testing-demo.herokuapp.com/coverage/lcov-report/index.html](http://express-app-testing-demo.herokuapp.com/coverage/lcov-report/index.html)
