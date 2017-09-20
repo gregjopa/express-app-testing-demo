@@ -10,8 +10,8 @@
   "scripts": {
     "start": "nodemon app/server.js",
     "test": "npm run lint && npm run jest",
-    "test:e2e": "jest --runInBand e2e_tests/*.test.js",
-    "jest": "jest --coverage --verbose app/__tests__/*.test.js",
+    "test:e2e": "jest --runInBand --env=node e2e_tests/*.test.js",
+    "jest": "jest --coverage --verbose --env=node app/__tests__/*.test.js",
     "lint": "eslint app/** e2e_tests/*",
     "prettier": "prettier --write app/*.js app/__{tests,mocks}__/*.js e2e_tests/*.js"
   },
