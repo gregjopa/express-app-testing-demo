@@ -14,7 +14,9 @@ describe('index route', () => {
       .expect('Content-Type', /html/)
       .expect(200)
       .then(response => {
-        expect(response.text).toMatch(/<title>Express App Testing Demo<\/title>/);
+        expect(response.text).toMatch(
+          /<title>Express App Testing Demo<\/title>/
+        );
       });
   });
 
@@ -24,9 +26,10 @@ describe('index route', () => {
       .expect('Content-Type', /html/)
       .expect(200)
       .then(response => {
-        expect(response.text).toMatch(/<div class="panel panel-default search-results">/);
+        expect(response.text).toMatch(
+          /<div class="panel panel-default search-results">/
+        );
       });
-
   });
 
   test('should respond with a 200 with invalid query parameters', () => {
