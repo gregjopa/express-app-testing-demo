@@ -1,6 +1,5 @@
 const request = require('supertest');
 
-process.env.PORT = 3001;
 jest.mock('../../app/photo_model');
 const app = require('../../app/server');
 
