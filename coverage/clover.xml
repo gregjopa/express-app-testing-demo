@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1505922202553" clover="3.2.0">
-  <project timestamp="1505922202553" name="All files">
-    <metrics statements="58" coveredstatements="58" conditionals="14" coveredconditionals="14" methods="11" coveredmethods="11" elements="83" coveredelements="83" complexity="0" loc="58" ncloc="58" packages="1" files="5" classes="5">
+<coverage generated="1505924102138" clover="3.2.0">
+  <project timestamp="1505924102138" name="All files">
+    <metrics statements="58" coveredstatements="58" conditionals="16" coveredconditionals="16" methods="11" coveredmethods="11" elements="85" coveredelements="85" complexity="0" loc="58" ncloc="58" packages="1" files="5" classes="5">
       <file name="form_validator.js" path="/Users/gregjopa/Documents/express-app-testing-demo/app/form_validator.js">
         <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
         <line num="3" count="10" type="stmt"/>
@@ -58,7 +58,7 @@
         <line num="42" count="1" type="stmt"/>
       </file>
       <file name="server.js" path="/Users/gregjopa/Documents/express-app-testing-demo/app/server.js">
-        <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="15" coveredstatements="15" conditionals="2" coveredconditionals="2" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -70,7 +70,7 @@
         <line num="14" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
+        <line num="21" count="1" type="cond" truecount="2" falsecount="0"/>
         <line num="22" count="1" type="stmt"/>
         <line num="23" count="1" type="stmt"/>
         <line num="25" count="1" type="stmt"/>

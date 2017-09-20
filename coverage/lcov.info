@@ -134,6 +134,8 @@ DA:23,1
 DA:25,1
 LF:15
 LH:15
-BRF:0
-BRH:0
+BRDA:21,0,0,1
+BRDA:21,0,1,1
+BRF:2
+BRH:2
 end_of_record
