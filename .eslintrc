@@ -12,9 +12,9 @@
     "expect": false,
     "describe": false,
     "test": false,
-    "before": false,
+    "beforeAll": false,
     "beforeEach": false,
-    "after": false,
+    "afterAll": false,
     "afterEach": false
   },
   "rules": {
