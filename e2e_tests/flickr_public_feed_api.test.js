@@ -3,12 +3,8 @@ const querystring = require('querystring');
 const jsonpHelper = require('../app/jsonp_helper');
 
 class API {
-  constructor(params) {
-    const qs = querystring.stringify({
-      tags: params.tags || '',
-      tagmode: params.tagmode || '',
-      format: params.format || 'json'
-    });
+  constructor({ tags = '', tagmode = '', format = 'json' }) {
+    const qs = querystring.stringify({ tags, tagmode, format });
     this.hostname = 'api.flickr.com';
     this.path = `/services/feeds/photos_public.gne?${qs}`;
   }
