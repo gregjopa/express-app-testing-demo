@@ -17,15 +17,15 @@
   },
   "dependencies": {
     "ejs": "~2.5.7",
-    "express": "~4.15.4",
+    "express": "~4.16.2",
     "got": "^7.1.0",
-    "serve-favicon": "^2.4.4"
+    "serve-favicon": "^2.4.5"
   },
   "devDependencies": {
-    "eslint": "^4.6.1",
-    "jest": "^21.0.2",
-    "nodemon": "^1.12.0",
-    "prettier": "^1.7.0",
+    "eslint": "^4.8.0",
+    "jest": "^21.2.1",
+    "nodemon": "^1.12.1",
+    "prettier": "^1.7.4",
     "supertest": "~3.0.0"
   },
   "repository": {
