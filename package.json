@@ -18,14 +18,14 @@
   "dependencies": {
     "ejs": "~2.5.7",
     "express": "~4.16.2",
-    "got": "^7.1.0",
+    "got": "^8.0.1",
     "serve-favicon": "^2.4.5"
   },
   "devDependencies": {
-    "eslint": "^4.8.0",
+    "eslint": "^4.12.1",
     "jest": "^21.2.1",
-    "nodemon": "^1.12.1",
-    "prettier": "^1.7.4",
+    "nodemon": "^1.12.5",
+    "prettier": "^1.9.1",
     "supertest": "~3.0.0"
   },
   "repository": {
