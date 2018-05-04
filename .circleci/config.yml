@@ -20,9 +20,3 @@ jobs:
       - checkout
       - run: npm install
       - run: npm test
-
-deployment:
-  test: 
-    branch: master
-    heroku:
-      appname: circlecitest
