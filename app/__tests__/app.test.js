@@ -12,7 +12,7 @@ describe('index route', () => {
     return request(app)
       .get('/')
       .expect('Content-Type', /html/)
-      .expect(201)
+      .expect(200)
       .then(response => {
         expect(response.text).toMatch(
           /<title>Express App Testing Demo<\/title>/
