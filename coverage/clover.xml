@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1505924102138" clover="3.2.0">
-  <project timestamp="1505924102138" name="All files">
+<coverage generated="1525435073365" clover="3.2.0">
+  <project timestamp="1525435073365" name="All files">
     <metrics statements="58" coveredstatements="58" conditionals="16" coveredconditionals="16" methods="11" coveredmethods="11" elements="85" coveredelements="85" complexity="0" loc="58" ncloc="58" packages="1" files="5" classes="5">
-      <file name="form_validator.js" path="/Users/gregjopa/Documents/express-app-testing-demo/app/form_validator.js">
+      <file name="form_validator.js" path="/Users/StamatiosStamoulas/Sites/Node/express-app-testing-demo/app/form_validator.js">
         <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
         <line num="3" count="10" type="stmt"/>
         <line num="4" count="10" type="stmt"/>
@@ -10,7 +10,7 @@
         <line num="12" count="6" type="cond" truecount="2" falsecount="0"/>
         <line num="15" count="2" type="stmt"/>
       </file>
-      <file name="jsonp_helper.js" path="/Users/gregjopa/Documents/express-app-testing-demo/app/jsonp_helper.js">
+      <file name="jsonp_helper.js" path="/Users/StamatiosStamoulas/Sites/Node/express-app-testing-demo/app/jsonp_helper.js">
         <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="2" count="5" type="stmt"/>
         <line num="3" count="5" type="stmt"/>
@@ -22,7 +22,7 @@
         <line num="13" count="2" type="stmt"/>
         <line num="17" count="4" type="stmt"/>
       </file>
-      <file name="photo_model.js" path="/Users/gregjopa/Documents/express-app-testing-demo/app/photo_model.js">
+      <file name="photo_model.js" path="/Users/StamatiosStamoulas/Sites/Node/express-app-testing-demo/app/photo_model.js">
         <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="1" count="3" type="stmt"/>
         <line num="2" count="3" type="stmt"/>
@@ -37,7 +37,7 @@
         <line num="23" count="1" type="stmt"/>
         <line num="27" count="3" type="stmt"/>
       </file>
-      <file name="route.js" path="/Users/gregjopa/Documents/express-app-testing-demo/app/route.js">
+      <file name="route.js" path="/Users/StamatiosStamoulas/Sites/Node/express-app-testing-demo/app/route.js">
         <metrics statements="17" coveredstatements="17" conditionals="10" coveredconditionals="10" methods="4" coveredmethods="4"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -57,7 +57,7 @@
         <line num="37" count="1" type="stmt"/>
         <line num="42" count="1" type="stmt"/>
       </file>
-      <file name="server.js" path="/Users/gregjopa/Documents/express-app-testing-demo/app/server.js">
+      <file name="server.js" path="/Users/StamatiosStamoulas/Sites/Node/express-app-testing-demo/app/server.js">
         <metrics statements="15" coveredstatements="15" conditionals="2" coveredconditionals="2" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
