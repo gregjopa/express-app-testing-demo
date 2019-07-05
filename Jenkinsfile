@@ -26,5 +26,11 @@ pipeline {
 					sh 'npm config ls'
 				}
 				}
+
+				stage ('Test') {
+				steps{
+					sh 'npm test'
+				}
+				}
 		}
 }
