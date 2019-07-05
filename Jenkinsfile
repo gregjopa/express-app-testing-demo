@@ -5,7 +5,7 @@ pipeline {
 		stages {
 				stage('GIT Clone') {
 				steps {
-					git https://github.com/Ashwani00002/express-app-testing-demo.git
+					git 'https://github.com/Ashwani00002/express-app-testing-demo.git'
 				}
 				}
 				stage('Build')
