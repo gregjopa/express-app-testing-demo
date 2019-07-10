@@ -32,5 +32,14 @@ pipeline {
 					sh 'npm test'
 				}
 				}
+
+				stage ('Deploy') {
+				if (env.BRANCH_NAME == 'master') {
+				steps{ 
+					echo "Deploy Stage Working"
+				}
+				}	
+				} 
+					
 		}
 }
