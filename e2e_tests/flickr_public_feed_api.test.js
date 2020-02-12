@@ -7,6 +7,7 @@ class API {
     const qs = querystring.stringify({ tags, tagmode, format });
     this.hostname = 'api.flickr.com';
     this.path = `/services/feeds/photos_public.gne?${qs}`;
+    this.protocol = 'https:';
   }
 }
 

@@ -1,9 +1,9 @@
-<% include _header.html %>
+<%-include('_header.html') %>
 
 
 <div class="container">
 
-  <% include _search_form.html %>
+  <%- include('_search_form.html') %>
 
   <% if (invalidParameters) { %>
     <div class="alert alert-danger">
@@ -14,10 +14,10 @@
   <% } %>
 
   <% if (searchResults) { %>
-    <% include _search_results.html %>
+    <%- include('_search_results.html') %>
   <% } %>
 
 </div>
 
 
-<% include _footer.html %>
+<%- include('_footer.html') %>
