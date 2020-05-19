@@ -1,5 +1,5 @@
 TN:
-SF:/Users/gregjopa/Documents/express-app-testing-demo/app/form_validator.js
+SF:app/form_validator.js
 FN:1,isValidCommaDelimitedList
 FN:7,isValidTagmode
 FN:11,hasValidFlickrAPIParams
@@ -23,7 +23,7 @@ BRF:4
 BRH:4
 end_of_record
 TN:
-SF:/Users/gregjopa/Documents/express-app-testing-demo/app/jsonp_helper.js
+SF:app/jsonp_helper.js
 FN:1,parseJSONP
 FNF:1
 FNH:1
@@ -43,7 +43,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/Users/gregjopa/Documents/express-app-testing-demo/app/photo_model.js
+SF:app/photo_model.js
 FN:5,getFlickrPhotos
 FN:15,(anonymous_1)
 FN:18,(anonymous_2)
@@ -70,7 +70,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:/Users/gregjopa/Documents/express-app-testing-demo/app/route.js
+SF:app/route.js
 FN:4,route
 FN:5,(anonymous_1)
 FN:31,(anonymous_2)
@@ -114,7 +114,7 @@ BRF:10
 BRH:10
 end_of_record
 TN:
-SF:/Users/gregjopa/Documents/express-app-testing-demo/app/server.js
+SF:app/server.js
 FNF:0
 FNH:0
 DA:1,1
