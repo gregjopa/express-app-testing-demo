@@ -37,6 +37,17 @@ function route(app) {
         return res.status(500).send({ error });
       });
   });
+
+  app.get('/defer-test', (req, res) => {
+    return res.render('defer-test');
+  });
+
+  app.get('/slow-script', (req, res) => {
+    setTimeout(function () {
+      return res.send(`console.log('slow script response')`);
+    }, 5000);
+
+  });
 }
 
 module.exports = route;
