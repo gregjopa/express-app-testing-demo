@@ -27,7 +27,7 @@ pipeline {
 
     stage('Export test result') {
       steps {
-        sh 'cd'
+        junit(testResults: 'test_reults/*.xml', allowEmptyResults: true)
       }
     }
 
