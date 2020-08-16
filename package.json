@@ -9,8 +9,8 @@
   "main": "app/server.js",
   "scripts": {
     "start": "nodemon app/server.js",
-    "test": "npm run lint && npm run jest",
-    "test:e2e": "jest --runInBand e2e_tests/*.test.js",
+    "test": "npm run lint && npm run jest --ci --reporters=default --reporters=jest-junit",
+    "test:e2e": "jest --testTimeout=30000 --runInBand e2e_tests/*.test.js --ci --reporters=default --reporters=jest-junit",
     "jest": "jest --testTimeout=30000 --coverage app/__tests__/*.test.js",
     "lint": "eslint app/*.js e2e_tests/*.js",
     "prettier": "prettier --write app/*.js app/__{tests,mocks}__/*.js e2e_tests/*.js"
@@ -19,6 +19,7 @@
     "ejs": "~3.1.3",
     "express": "~4.17.1",
     "got": "^11.1.4",
+    "jest-junit": "^11.1.0",
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
@@ -34,7 +35,18 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "verbose": true
+    "verbose": true,
+    "reporters": [ "default", "jest-junit" ]
+  },
+  "jest-junit": {
+    "suiteName": "jest Unit tests",
+    "outputDirectory": "./test_results",
+    "outputName": "junit.xml",
+    "uniqueOutputName": "true",
+    "classNameTemplate": "{classname}-{title}",
+    "titleTemplate": "{classname}-{title}",
+    "ancestorSeparator": " › ",
+    "usePathForSuiteName": "true"
   },
   "prettier": {
     "singleQuote": true

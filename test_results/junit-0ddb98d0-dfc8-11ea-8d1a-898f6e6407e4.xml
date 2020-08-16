@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest Unit tests" tests="23" failures="3" time="14.355">
+  <testsuite name="app/__tests__/form_validator.test.js" errors="0" failures="0" skipped="0" timestamp="2020-08-16T13:54:37" time="0.922" tests="10">
+    <testcase classname="isValidCommaDelimitedList(value)-should return true for valid list of search terms" name="isValidCommaDelimitedList(value)-should return true for valid list of search terms" time="0.005">
+    </testcase>
+    <testcase classname="isValidCommaDelimitedList(value)-should return true for valid single search term" name="isValidCommaDelimitedList(value)-should return true for valid single search term" time="0.002">
+    </testcase>
+    <testcase classname="isValidCommaDelimitedList(value)-should return false for search term containing numbers" name="isValidCommaDelimitedList(value)-should return false for search term containing numbers" time="0">
+    </testcase>
+    <testcase classname="isValidCommaDelimitedList(value)-should return false for search term containing special characters" name="isValidCommaDelimitedList(value)-should return false for search term containing special characters" time="0.001">
+    </testcase>
+    <testcase classname="isValidTagmode(value)-should return true for valid tagmode &quot;any&quot;" name="isValidTagmode(value)-should return true for valid tagmode &quot;any&quot;" time="0.001">
+    </testcase>
+    <testcase classname="isValidTagmode(value)-should return true for valid tagmode &quot;all&quot;" name="isValidTagmode(value)-should return true for valid tagmode &quot;all&quot;" time="0.001">
+    </testcase>
+    <testcase classname="isValidTagmode(value)-should return false for invalid tagmode" name="isValidTagmode(value)-should return false for invalid tagmode" time="0.001">
+    </testcase>
+    <testcase classname="hasValidFlickrAPIParams(tags, tagmode)-should return true for valid params" name="hasValidFlickrAPIParams(tags, tagmode)-should return true for valid params" time="0.001">
+    </testcase>
+    <testcase classname="hasValidFlickrAPIParams(tags, tagmode)-should return false for invalid tags" name="hasValidFlickrAPIParams(tags, tagmode)-should return false for invalid tags" time="0.001">
+    </testcase>
+    <testcase classname="hasValidFlickrAPIParams(tags, tagmode)-should return false for invalid tagmode" name="hasValidFlickrAPIParams(tags, tagmode)-should return false for invalid tagmode" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="app/__tests__/photo_model.test.js" errors="0" failures="0" skipped="0" timestamp="2020-08-16T13:54:38" time="0.389" tests="3">
+    <testcase classname="getFlickrPhotos(tags, tagmode, callback)-should return photos" name="getFlickrPhotos(tags, tagmode, callback)-should return photos" time="0.01">
+    </testcase>
+    <testcase classname="getFlickrPhotos(tags, tagmode, callback)-should error when api returns 500 http status code" name="getFlickrPhotos(tags, tagmode, callback)-should error when api returns 500 http status code" time="0.004">
+    </testcase>
+    <testcase classname="getFlickrPhotos(tags, tagmode, callback)-should error with invalid jsonp data" name="getFlickrPhotos(tags, tagmode, callback)-should error with invalid jsonp data" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="app/__tests__/app.test.js" errors="0" failures="1" skipped="0" timestamp="2020-08-16T13:54:37" time="1.769" tests="4">
+    <testcase classname="index route-should respond with a 200 with no query parameters" name="index route-should respond with a 200 with no query parameters" time="0.02">
+      <failure>Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (net.js:1280:14)
+    at listenInCluster (net.js:1328:12)
+    at Server.listen (net.js:1415:7)
+    at Function.listen (/mnt/95aa63a9-1ebb-4f9f-9070-9972520b4407/Repo/express-app-testing-demo/node_modules/express/lib/application.js:618:24)
+    at Object.&lt;anonymous&gt; (/mnt/95aa63a9-1ebb-4f9f-9070-9972520b4407/Repo/express-app-testing-demo/app/server.js:22:18)
+    at Runtime._execModule (/mnt/95aa63a9-1ebb-4f9f-9070-9972520b4407/Repo/express-app-testing-demo/node_modules/jest-runtime/build/index.js:1204:24)
+    at Runtime._loadModule (/mnt/95aa63a9-1ebb-4f9f-9070-9972520b4407/Repo/express-app-testing-demo/node_modules/jest-runtime/build/index.js:815:12)
+    at Runtime.requireModule (/mnt/95aa63a9-1ebb-4f9f-9070-9972520b4407/Repo/express-app-testing-demo/node_modules/jest-runtime/build/index.js:676:10)
+    at Runtime.require [as requireModuleOrMock] (/mnt/95aa63a9-1ebb-4f9f-9070-9972520b4407/Repo/express-app-testing-demo/node_modules/jest-runtime/build/index.js:836:21)
+    at Object.&lt;anonymous&gt; (/mnt/95aa63a9-1ebb-4f9f-9070-9972520b4407/Repo/express-app-testing-demo/app/__tests__/app.test.js:4:13)</failure>
+    </testcase>
+    <testcase classname="index route-should respond with a 200 with valid query parameters" name="index route-should respond with a 200 with valid query parameters" time="0.08">
+    </testcase>
+    <testcase classname="index route-should respond with a 200 with invalid query parameters" name="index route-should respond with a 200 with invalid query parameters" time="0.024">
+    </testcase>
+    <testcase classname="index route-should respond with a 500 error due to bad jsonp data" name="index route-should respond with a 500 error due to bad jsonp data" time="0.012">
+    </testcase>
+  </testsuite>
+  <testsuite name="app/__tests__/jsonp_helper.test.js" errors="0" failures="0" skipped="0" timestamp="2020-08-16T13:54:38" time="0.406" tests="3">
+    <testcase classname="parseJSONP(jsonpData)-should parse valid jsonp data" name="parseJSONP(jsonpData)-should parse valid jsonp data" time="0.006">
+    </testcase>
+    <testcase classname="parseJSONP(jsonpData)-should parse jsonp data with escaped single quotes" name="parseJSONP(jsonpData)-should parse jsonp data with escaped single quotes" time="0.001">
+    </testcase>
+    <testcase classname="parseJSONP(jsonpData)-should throw error when parsing invalid jsonp data" name="parseJSONP(jsonpData)-should throw error when parsing invalid jsonp data" time="0.004">
+    </testcase>
+  </testsuite>
+  <testsuite name="e2e_tests/flickr_public_feed_api.test.js" errors="0" failures="2" skipped="0" timestamp="2020-08-16T13:54:37" time="11.741" tests="3">
+    <testcase classname="flickr public feed api-should return expected json format" name="flickr public feed api-should return expected json format" time="5.019">
+      <failure>: Timeout - Async callback was not invoked within the 5000 ms timeout specified by jest.setTimeout.Timeout - Async callback was not invoked within the 5000 ms timeout specified by jest.setTimeout.Error: 
+    at new Spec (/mnt/95aa63a9-1ebb-4f9f-9070-9972520b4407/Repo/express-app-testing-demo/node_modules/jest-jasmine2/build/jasmine/Spec.js:116:22)
+    at new Spec (/mnt/95aa63a9-1ebb-4f9f-9070-9972520b4407/Repo/express-app-testing-demo/node_modules/jest-jasmine2/build/setup_jest_globals.js:78:9)
+    at specFactory (/mnt/95aa63a9-1ebb-4f9f-9070-9972520b4407/Repo/express-app-testing-demo/node_modules/jest-jasmine2/build/jasmine/Env.js:523:24)
+    at Env.it (/mnt/95aa63a9-1ebb-4f9f-9070-9972520b4407/Repo/express-app-testing-demo/node_modules/jest-jasmine2/build/jasmine/Env.js:592:24)
+    at Env.it (/mnt/95aa63a9-1ebb-4f9f-9070-9972520b4407/Repo/express-app-testing-demo/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:128:23)
+    at test (/mnt/95aa63a9-1ebb-4f9f-9070-9972520b4407/Repo/express-app-testing-demo/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:100:21)
+    at Suite.describe (/mnt/95aa63a9-1ebb-4f9f-9070-9972520b4407/Repo/express-app-testing-demo/e2e_tests/flickr_public_feed_api.test.js:15:3)
+    at addSpecsToSuite (/mnt/95aa63a9-1ebb-4f9f-9070-9972520b4407/Repo/express-app-testing-demo/node_modules/jest-jasmine2/build/jasmine/Env.js:444:51)
+    at Env.describe (/mnt/95aa63a9-1ebb-4f9f-9070-9972520b4407/Repo/express-app-testing-demo/node_modules/jest-jasmine2/build/jasmine/Env.js:414:11)
+    at describe (/mnt/95aa63a9-1ebb-4f9f-9070-9972520b4407/Repo/express-app-testing-demo/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:88:18)</failure>
+    </testcase>
+    <testcase classname="flickr public feed api-should return many photos" name="flickr public feed api-should return many photos" time="5.004">
+      <failure>: Timeout - Async callback was not invoked within the 5000 ms timeout specified by jest.setTimeout.Timeout - Async callback was not invoked within the 5000 ms timeout specified by jest.setTimeout.Error: 
+    at new Spec (/mnt/95aa63a9-1ebb-4f9f-9070-9972520b4407/Repo/express-app-testing-demo/node_modules/jest-jasmine2/build/jasmine/Spec.js:116:22)
+    at new Spec (/mnt/95aa63a9-1ebb-4f9f-9070-9972520b4407/Repo/express-app-testing-demo/node_modules/jest-jasmine2/build/setup_jest_globals.js:78:9)
+    at specFactory (/mnt/95aa63a9-1ebb-4f9f-9070-9972520b4407/Repo/express-app-testing-demo/node_modules/jest-jasmine2/build/jasmine/Env.js:523:24)
+    at Env.it (/mnt/95aa63a9-1ebb-4f9f-9070-9972520b4407/Repo/express-app-testing-demo/node_modules/jest-jasmine2/build/jasmine/Env.js:592:24)
+    at Env.it (/mnt/95aa63a9-1ebb-4f9f-9070-9972520b4407/Repo/express-app-testing-demo/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:128:23)
+    at test (/mnt/95aa63a9-1ebb-4f9f-9070-9972520b4407/Repo/express-app-testing-demo/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:100:21)
+    at Suite.describe (/mnt/95aa63a9-1ebb-4f9f-9070-9972520b4407/Repo/express-app-testing-demo/e2e_tests/flickr_public_feed_api.test.js:48:3)
+    at addSpecsToSuite (/mnt/95aa63a9-1ebb-4f9f-9070-9972520b4407/Repo/express-app-testing-demo/node_modules/jest-jasmine2/build/jasmine/Env.js:444:51)
+    at Env.describe (/mnt/95aa63a9-1ebb-4f9f-9070-9972520b4407/Repo/express-app-testing-demo/node_modules/jest-jasmine2/build/jasmine/Env.js:414:11)
+    at describe (/mnt/95aa63a9-1ebb-4f9f-9070-9972520b4407/Repo/express-app-testing-demo/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:88:18)</failure>
+    </testcase>
+    <testcase classname="flickr public feed api-should return zero photos" name="flickr public feed api-should return zero photos" time="0.583">
+    </testcase>
+  </testsuite>
+</testsuites>
