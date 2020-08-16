@@ -25,5 +25,17 @@ pipeline {
       }
     }
 
+    stage('Export test result') {
+      steps {
+        sh 'cd'
+      }
+    }
+
+    stage('Deploy to heroku') {
+      steps {
+        sh 'cd'
+      }
+    }
+
   }
 }
