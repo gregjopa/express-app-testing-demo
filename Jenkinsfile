@@ -41,7 +41,7 @@ pipeline {
     
     stage('Publish Code Coverage') {
       steps {
-        publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'coverage', reportFiles: 'index.html', reportName: 'Coverage Report', reportTitles: ''])
+        publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'coverageReport', reportFiles: 'coverage/index.html', reportName: 'Coverage Report', reportTitles: ''])
       }
     }
 
