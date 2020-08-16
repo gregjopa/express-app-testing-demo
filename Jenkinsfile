@@ -34,6 +34,7 @@ pipeline {
     stage('Deploy to heroku') {
       steps {
         sh 'cd'
+        emailext(subject: 'asd', body: 'asd', to: 'tranthuanthanh535@outlook.com')
       }
     }
 
