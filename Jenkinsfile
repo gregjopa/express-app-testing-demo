@@ -33,8 +33,9 @@ pipeline {
 
     stage('Deploy to heroku') {
       steps {
-        sh 'cd'
-        emailext(subject: 'asd', body: 'asd', to: 'tranthuanthanh535@outlook.com')
+        emailext body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
+                recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
+                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
       }
     }
 
