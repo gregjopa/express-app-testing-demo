@@ -4,6 +4,8 @@ This project is a simple express app for demonstrating testing and code coverage
 [Jest](https://facebook.github.io/jest/) and
 [Supertest](https://github.com/visionmedia/supertest) are used for testing.
 Jest is also used for mocking functions and measuring code coverage.
+
+
 Note that this app only focuses on server-side JavaScript testing.
 
 
